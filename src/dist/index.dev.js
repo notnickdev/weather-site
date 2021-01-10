@@ -7,7 +7,7 @@ var hbs = require('hbs');
 var path = require('path');
 
 var app = express();
-var port = 3000 || process.env.PORT; // Files
+var port = process.env.PORT || 3000; // Files
 
 var forecast = require('./utils/forecast');
 
