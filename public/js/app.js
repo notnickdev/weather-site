@@ -10,20 +10,18 @@ form.addEventListener('submit', (event) => {
   message1.textContent = 'Loading...';
   const location = input.value;
 
-  fetch(`http://localhost:3000/weather?address=${location}`).then(
-    (response) => {
-      response.json().then((data) => {
-        if (data.error) {
-          message1.textContent = data.error;
-          message2.textContent = '';
-          return;
-        }
+  fetch(`/weather?address=${location}`).then((response) => {
+    response.json().then((data) => {
+      if (data.error) {
+        message1.textContent = data.error;
+        message2.textContent = '';
+        return;
+      }
 
-        message1.textContent = data.location;
-        message2.textContent = data.forecast;
-      });
-    }
-  );
+      message1.textContent = data.location;
+      message2.textContent = data.forecast;
+    });
+  });
 
   message2.textContent = '';
   input.value = '';
