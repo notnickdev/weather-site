@@ -8,7 +8,7 @@ form.addEventListener('submit', function (event) {
   event.preventDefault();
   message1.textContent = 'Loading...';
   var location = input.value;
-  fetch("/weather?address=".concat(location)).then(function (response) {
+  fetch('/weather?address=' + location).then(function (response) {
     response.json().then(function (data) {
       if (data.error) {
         message1.textContent = data.error;
